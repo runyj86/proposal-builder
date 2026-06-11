@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #FAFAF8;
+  --ink: #0E0F12;
+  --muted: #6B6B6B;
+  --line: #E5E5E0;
+  --accent: #2563EB;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+@layer base {
+  body { @apply text-[15px] leading-relaxed; }
+  h1 { @apply text-2xl font-semibold tracking-tight; }
+  h2 { @apply text-xl font-semibold tracking-tight; }
+  h3 { @apply text-lg font-semibold; }
+}
+
+/* Markdown */
+.prose-pb { @apply max-w-none break-words; }
+.prose-pb h1 { @apply text-2xl font-semibold mt-8 mb-4 pb-2 border-b border-[color:var(--line)]; }
+.prose-pb h2 { @apply text-xl font-semibold mt-6 mb-3 text-[color:var(--accent)]; }
+.prose-pb h3 { @apply text-base font-semibold mt-4 mb-2; }
+.prose-pb p { @apply my-2.5; }
+.prose-pb ul { @apply list-disc pl-5 my-2 space-y-1; }
+.prose-pb ol { @apply list-decimal pl-5 my-2 space-y-1; }
+.prose-pb li { @apply break-words; }
+.prose-pb strong { @apply font-semibold; }
+.prose-pb em { @apply italic; }
+.prose-pb code { @apply px-1 py-0.5 rounded bg-black/5 text-[0.9em] font-mono; }
+.prose-pb blockquote { @apply border-l-2 border-[color:var(--accent)] pl-3 text-[color:var(--muted)] my-3 italic; }
+.prose-pb hr { @apply my-6 border-[color:var(--line)]; }
+.prose-pb .table-wrap { @apply overflow-x-auto my-4; }
+.prose-pb table { @apply w-full border-collapse text-[13px] min-w-[500px]; }
+.prose-pb th, .prose-pb td { @apply border border-[color:var(--line)] px-3 py-2 align-top; }
+.prose-pb th { @apply bg-black/[.03] font-semibold text-left; }
+
+/* UI Components */
+.input {
+  @apply w-full border border-[color:var(--line)] rounded-lg px-3 py-2 bg-white
+         focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition;
+}
+.label { @apply block text-sm font-medium mb-1.5; }
+.btn-primary {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-ink text-white text-sm font-medium
+         hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg border border-[color:var(--line)]
+         bg-white text-sm hover:bg-black/[.03] disabled:opacity-40 transition;
+}
+.btn-select {
+  @apply w-full mt-4 py-2.5 rounded-lg border-2 border-[color:var(--accent)] text-[color:var(--accent)]
+         text-sm font-semibold hover:bg-blue-50 transition;
+}
+.card {
+  @apply bg-white border border-[color:var(--line)] rounded-xl p-5;
+}
+.card-option {
+  @apply bg-white border-2 border-[color:var(--line)] rounded-xl p-5 hover:border-blue-300 transition-colors;
+}
