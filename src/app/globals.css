@@ -24,44 +24,64 @@ html, body {
 
 /* Markdown */
 .prose-pb { @apply max-w-none break-words; }
-.prose-pb h1 { @apply text-2xl font-semibold mt-8 mb-4 pb-2 border-b border-[color:var(--line)]; }
-.prose-pb h2 { @apply text-xl font-semibold mt-6 mb-3 text-[color:var(--accent)]; }
+.prose-pb h1 { @apply text-2xl font-semibold mt-8 mb-4 pb-2; border-bottom: 1px solid var(--line); }
+.prose-pb h2 { @apply text-xl font-semibold mt-6 mb-3; color: var(--accent); }
 .prose-pb h3 { @apply text-base font-semibold mt-4 mb-2; }
-.prose-pb p { @apply my-2.5; }
+.prose-pb p { @apply my-2; }
 .prose-pb ul { @apply list-disc pl-5 my-2 space-y-1; }
 .prose-pb ol { @apply list-decimal pl-5 my-2 space-y-1; }
 .prose-pb li { @apply break-words; }
 .prose-pb strong { @apply font-semibold; }
 .prose-pb em { @apply italic; }
-.prose-pb code { @apply px-1 py-0.5 rounded bg-black/5 text-[0.9em] font-mono; }
-.prose-pb blockquote { @apply border-l-2 border-[color:var(--accent)] pl-3 text-[color:var(--muted)] my-3 italic; }
-.prose-pb hr { @apply my-6 border-[color:var(--line)]; }
+.prose-pb code { @apply px-1 py-0.5 rounded text-[0.9em] font-mono; background: rgba(0,0,0,0.06); }
+.prose-pb blockquote { @apply pl-3 my-3 italic; border-left: 2px solid var(--accent); color: var(--muted); }
+.prose-pb hr { @apply my-6; border-color: var(--line); }
 .prose-pb .table-wrap { @apply overflow-x-auto my-4; }
-.prose-pb table { @apply w-full border-collapse text-[13px] min-w-[500px]; }
-.prose-pb th, .prose-pb td { @apply border border-[color:var(--line)] px-3 py-2 align-top; }
-.prose-pb th { @apply bg-black/[.03] font-semibold text-left; }
+.prose-pb table { @apply w-full border-collapse text-[13px]; min-width: 500px; }
+.prose-pb th,
+.prose-pb td { @apply px-3 py-2 align-top; border: 1px solid var(--line); }
+.prose-pb th { @apply font-semibold text-left; background: rgba(0,0,0,0.03); }
 
 /* UI Components */
 .input {
-  @apply w-full border border-[color:var(--line)] rounded-lg px-3 py-2 bg-white
-         focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition;
+  @apply w-full rounded-lg px-3 py-2 bg-white transition;
+  border: 1px solid var(--line);
+  outline: none;
 }
+.input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+
 .label { @apply block text-sm font-medium mb-1.5; }
+
 .btn-primary {
-  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-ink text-white text-sm font-medium
-         hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition;
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-white text-sm font-medium transition;
+  background-color: var(--ink);
 }
+.btn-primary:hover { opacity: 0.9; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
 .btn-ghost {
-  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg border border-[color:var(--line)]
-         bg-white text-sm hover:bg-black/[.03] disabled:opacity-40 transition;
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white text-sm transition;
+  border: 1px solid var(--line);
 }
+.btn-ghost:hover { background: rgba(0,0,0,0.03); }
+.btn-ghost:disabled { opacity: 0.4; }
+
 .btn-select {
-  @apply w-full mt-4 py-2.5 rounded-lg border-2 border-[color:var(--accent)] text-[color:var(--accent)]
-         text-sm font-semibold hover:bg-blue-50 transition;
+  @apply w-full mt-4 py-2.5 rounded-lg text-sm font-semibold transition;
+  border: 2px solid var(--accent);
+  color: var(--accent);
 }
+.btn-select:hover { background: #eff6ff; }
+
 .card {
-  @apply bg-white border border-[color:var(--line)] rounded-xl p-5;
+  @apply bg-white rounded-xl p-5;
+  border: 1px solid var(--line);
 }
 .card-option {
-  @apply bg-white border-2 border-[color:var(--line)] rounded-xl p-5 hover:border-blue-300 transition-colors;
+  @apply bg-white rounded-xl p-5 transition-colors;
+  border: 2px solid var(--line);
 }
+.card-option:hover { border-color: #93c5fd; }
